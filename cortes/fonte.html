@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NEON EDIT Cortes</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Envie a gravação da sua live ou gameplay e peça os cortes ao Claude com o NEON EDIT: vídeos verticais com legenda para Reels, TikTok e Shorts.">
+<meta name="description" content="Envie sua gravação e peça ao NEON EDIT para criar cortes com legendas, ritmo e o seu estilo, usando o seu Claude.">
 <meta name="theme-color" content="#0A0A12">
 <link rel="icon" href="__N__">
 <style>
@@ -15,10 +15,12 @@
   --yellow:#FFE600; --pink:#FF2E93; --purple:#7B3FE4;
   --text:#F5F5FA; --muted:#A3A3B8; --on-yellow:#0A0A12;
   --font:"Space Grotesk",ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  --heavy:"Inter Display","Arial Black",Impact,system-ui,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
   color-scheme:dark;
 }
 @font-face{font-family:"Space Grotesk";src:url("__SG__") format("woff");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Inter Display";src:url("__IB__") format("woff");font-weight:900;font-display:swap}
 @font-face{font-family:"JetBrains Mono";src:url("__JB__") format("woff");font-weight:100 800;font-display:swap}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -53,8 +55,10 @@ p{margin:0}
 .brand img{width:40px;height:auto;mix-blend-mode:lighten}
 .brand span{font-weight:700;font-size:16px;letter-spacing:.08em}
 .hero-copy{display:grid;gap:20px;justify-items:center;text-align:center}
-.hero h1{font-size:clamp(40px,8.4vw,74px);font-weight:700}
-.hero h1 span{display:block}
+.hero h1{display:grid;gap:14px;justify-items:center}
+.hero h1 .h1a{display:block;font-size:clamp(24px,4.6vw,36px);font-weight:700;color:#D9D9E6;letter-spacing:-.02em}
+.hero h1 .h1b{display:block;font-family:var(--heavy);font-weight:900;font-size:clamp(36px,7.6vw,66px);line-height:1.02;letter-spacing:-.035em;max-width:15ch}
+.hero h1 .h1b .pink{display:inline}
 .hero .sub{font-size:clamp(17px,2.4vw,19px);color:#C9C9D9;max-width:36ch}
 .vsl{position:relative;width:min(100%,340px);aspect-ratio:9/16;margin:clamp(36px,6vw,48px) auto 28px;border-radius:24px;border:1px dashed #3A3A55;background:linear-gradient(180deg,#14142A,#0F0F1C);display:grid;place-items:center;max-width:100%}
 .vsl .ph{display:grid;justify-items:center;gap:14px;color:var(--muted);font-size:14px}
@@ -65,14 +69,19 @@ p{margin:0}
 
 /* 2. Exemplos */
 .flow{display:grid;gap:20px;justify-items:center}
+.src{margin:0;width:100%;max-width:640px;display:grid;gap:10px}
+.src img,.cuts img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--muted);text-align:center}
+figcaption b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:2px}
+.cuts figure{margin:0;display:grid;gap:10px;align-content:start;min-width:0}
 .slot{border-radius:16px;border:1px dashed #3A3A55;background:var(--card);display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center;padding:12px}
 .slot b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
 .slot.wide{width:100%;max-width:560px;aspect-ratio:16/9}
 .arrow{color:var(--pink);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px}
 .arrow svg{width:22px;height:22px}
-.cuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:100%;max-width:560px}
+.cuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:100%;max-width:640px;align-items:start}
 .slot.tall{aspect-ratio:9/16}
-.note{margin-top:22px;color:var(--muted);font-size:14px;text-align:center}
+.note{margin-top:6px;color:#7C7C93;font-size:12.5px;text-align:center;max-width:52ch}
 
 /* 3. Como funciona */
 .steps{list-style:none;margin:0 auto;padding:0;display:grid;gap:14px;max-width:620px;counter-reset:s}
@@ -88,6 +97,40 @@ p{margin:0}
 .custom b{display:block;font-size:17px;margin-bottom:4px}
 .custom span{color:var(--muted);font-size:15px}
 
+.styles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sty{display:grid;gap:12px;justify-items:center;text-align:center;min-width:0}
+.sty b{font-size:15px;font-weight:700}
+.scr{position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 10px 22%;
+  background:linear-gradient(180deg,rgba(10,10,18,.0) 40%,rgba(10,10,18,.85)),linear-gradient(160deg,#2A1638 0%,#3A1F4F 35%,#1B2A44 70%,#0F1B2A 100%)}
+.scr::before{content:"";position:absolute;inset:auto 0 46% 0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,46,147,.35),transparent)}
+.scr p{position:relative;margin:0;font-family:var(--heavy);font-weight:900;font-size:clamp(14px,2.2vw,19px);line-height:1.15;text-transform:uppercase;color:#fff;text-align:center}
+.cap-mark span{padding:0 .18em;border-radius:4px}
+.cap-word span{display:inline-block}
+.cap-color{padding:.3em .55em;border-radius:6px;background:var(--pink)}
+.sw{position:relative;display:flex;gap:6px;margin-top:10px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+.sw i:nth-child(1){background:#FF2E93}.sw i:nth-child(2){background:#FFE600}.sw i:nth-child(3){background:#2EE6FF}.sw i:nth-child(4){background:#9B5CFF}
+.scr .sw{position:relative;margin-top:12px}
+.wide-src{justify-content:center;padding:0}
+.frame16{position:relative;width:88%;aspect-ratio:16/9;border-radius:6px;background:linear-gradient(120deg,#3A2A5A,#1F3B5A 60%,#2A5A6A);border:1px solid rgba(255,255,255,.12)}
+.frame16::after{content:"";position:absolute;right:6%;top:10%;width:22%;aspect-ratio:4/3;border-radius:3px;background:rgba(255,255,255,.18)}
+.win916{position:absolute;top:-1px;bottom:-1px;left:8%;aspect-ratio:9/16;border:2px solid var(--yellow);border-radius:4px;box-shadow:0 0 0 999px rgba(10,10,18,.55)}
+.cap-mark span:nth-child(3){background:var(--yellow);color:#0A0A12}
+.cap-color{background:var(--pink)}
+@media (prefers-reduced-motion:no-preference){
+  .cap-mark span{animation:mark 3.6s infinite steps(1)}
+  .cap-mark span:nth-child(1){animation-delay:0s}.cap-mark span:nth-child(2){animation-delay:1.2s}.cap-mark span:nth-child(3){animation-delay:2.4s;background:none;color:#fff}
+  @keyframes mark{0%{background:var(--yellow);color:#0A0A12}33.3%{background:none;color:#fff}}
+  .cap-word span{opacity:0;animation:word 3.2s infinite}
+  .cap-word span:nth-child(2){animation-delay:.35s}.cap-word span:nth-child(3){animation-delay:.7s}.cap-word span:nth-child(4){animation-delay:1.05s;color:var(--pink)}
+  @keyframes word{0%{opacity:0;transform:translateY(6px) scale(.9)}8%{opacity:1;transform:none}80%{opacity:1}92%,100%{opacity:0}}
+  .cap-color{animation:hue 6s infinite}
+  @keyframes hue{0%,22%{background:#FF2E93;color:#fff}25%,47%{background:#FFE600;color:#0A0A12}50%,72%{background:#2EE6FF;color:#0A0A12}75%,97%{background:#9B5CFF;color:#fff}}
+  .win916{animation:pan 5s ease-in-out infinite alternate}
+  @keyframes pan{from{left:8%}to{left:calc(92% - 38%)}}
+}
+.cap-word span:nth-child(4){color:var(--pink)}
+
 /* 5. Oferta */
 .offer{max-width:520px;margin-inline:auto;border-radius:24px;border:1px solid #3A2A55;background:linear-gradient(180deg,#1B1730,#141424);padding:clamp(26px,6vw,40px);display:grid;gap:22px;box-shadow:0 0 0 1px rgba(255,46,147,.12),0 30px 80px -40px rgba(255,46,147,.5)}
 .offer-top{display:flex;align-items:center;gap:12px}
@@ -102,6 +145,13 @@ p{margin:0}
 .offer .btn{width:100%}
 .req{font-size:14px;color:var(--muted);text-align:center}
 
+.guarantee{max-width:520px;margin:18px auto 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.seal{width:64px;height:64px;border-radius:50%;border:2px solid var(--yellow);display:grid;place-items:center;align-content:center;color:var(--yellow);line-height:1}
+.seal b{font-family:var(--heavy);font-weight:900;font-size:24px}
+.seal span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.guarantee h3{font-size:18px;margin-bottom:4px}
+.guarantee p{color:var(--muted);font-size:15px}
+
 /* 6. FAQ */
 .faq{display:grid;gap:10px;max-width:660px;margin-inline:auto}
 .faq details{border:1px solid var(--line);border-radius:14px;background:var(--card)}
@@ -113,7 +163,8 @@ p{margin:0}
 
 /* 7. Fechamento */
 .close{display:grid;gap:22px;justify-items:center;text-align:center}
-.close h2{font-size:clamp(34px,7vw,56px);font-weight:700}
+.close h2.final{display:grid;gap:4px;font-family:var(--heavy);font-weight:900;text-transform:uppercase;font-size:clamp(34px,7.4vw,64px);line-height:1;letter-spacing:-.03em}
+.close h2.final .pink{font-size:.62em;line-height:1.1;margin-top:10px;max-width:18ch;justify-self:center}
 .close .p{font-size:30px;font-weight:700;letter-spacing:-.03em}
 .close .p small{display:block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--muted);font-size:13px}
@@ -125,7 +176,9 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
 @media (max-width:560px){
   body{font-size:16px}
   .cuts{gap:10px}
-  .custom{grid-template-columns:1fr}
+  .styles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .cuts{justify-self:stretch;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 20px 6px;margin-inline:-20px;width:auto;max-width:none;-webkit-overflow-scrolling:touch}
+  .cuts figure{flex:0 0 68%;scroll-snap-align:center}
   .steps li{grid-template-columns:40px minmax(0,1fr);gap:14px;padding:18px}
   .steps li::before{width:40px;height:40px;font-size:18px}
   .hero .btn,.close .btn{width:100%}
@@ -147,9 +200,9 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
     <div class="wrap">
       <div class="brand"><img src="__N__" alt="" width="360" height="285"><span>NEON EDIT</span></div>
       <div class="hero-copy">
-        <span class="eyebrow">Cortes de lives e gameplays</span>
-        <h1><span>Sua live vira conteúdo.</span> <span class="pink">O NEON EDIT faz os cortes.</span></h1>
-        <p class="sub">Você envia a gravação da sua live ou gameplay e pede os cortes ao Claude. O NEON EDIT separa os trechos e monta vídeos na vertical, com legenda, para Reels, TikTok e Shorts.</p>
+        <span class="eyebrow">Cortes prontos em minutos</span>
+        <h1><span class="h1a">Sua live rende muito mais.</span> <span class="h1b">Transforme seus melhores momentos em <span class="pink">cortes prontos pra postar.</span></span></h1>
+        <p class="sub">Envie sua gravação e peça ao NEON EDIT para criar cortes com legendas, ritmo e o seu estilo, usando o seu Claude.</p>
       </div>
       <div class="vsl" id="vsl" data-src="" aria-label="Vídeo de apresentação">
         <div class="ph"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i><b>Vídeo de apresentação</b></div>
@@ -169,13 +222,17 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
         <p>A gravação longa entra de um lado. Do outro, saem cortes verticais com legenda, prontos para você revisar e postar.</p>
       </div>
       <div class="flow">
-        <div class="slot wide" data-exemplo="original"><span><b>Gravação original</b>Espaço para o exemplo real</span></div>
-        <div class="arrow" aria-hidden="true"><svg><use href="#i-down"/></svg>NEON EDIT</div>
-        <div class="cuts">
-          <div class="slot tall" data-exemplo="corte-1"><span><b>Corte 1</b>Exemplo real</span></div>
-          <div class="slot tall" data-exemplo="corte-2"><span><b>Corte 2</b>Exemplo real</span></div>
-          <div class="slot tall" data-exemplo="corte-3"><span><b>Corte 3</b>Exemplo real</span></div>
+        <figure class="src">
+          <img src="img/gravacao.webp" alt="Gravação horizontal de uma live de gameplay, com a câmera do streamer no canto" width="1200" height="667" loading="lazy">
+          <figcaption>Gravação de origem</figcaption>
+        </figure>
+        <div class="arrow" aria-hidden="true"><svg><use href="#i-down"/></svg>Vira cortes verticais</div>
+        <div class="cuts" aria-label="Exemplos de formato de corte">
+          <figure><img src="img/corte-1.webp" alt="Corte vertical com a câmera em cima, título no meio e o jogo embaixo" width="540" height="970" loading="lazy"><figcaption><b>Formato 1</b>Câmera em cima e título no meio</figcaption></figure>
+          <figure><img src="img/corte-2.webp" alt="Corte vertical com etiqueta do nome e legenda com palavra destacada" width="540" height="957" loading="lazy"><figcaption><b>Formato 2</b>Legenda com palavra em destaque</figcaption></figure>
+          <figure><img src="img/corte-3.webp" alt="Corte vertical com título em faixa clara entre a câmera e o jogo" width="540" height="1001" loading="lazy"><figcaption><b>Formato 3</b>Título em faixa clara</figcaption></figure>
         </div>
+        <p class="note">Exemplos de formato com cortes de outros criadores, usados só como referência visual. Não foram feitos com o NEON EDIT e não indicam parceria.</p>
       </div>
     </div>
   </section>
@@ -192,7 +249,6 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
         <li><div><h3>Envie a gravação e peça os cortes</h3><p>Coloque o arquivo da live ou da gameplay na pasta e diga o que quer, com as suas palavras: quantos cortes, sobre quais momentos e o estilo da legenda.</p></div></li>
         <li><div><h3>Revise, ajuste e exporte</h3><p>Assista à prévia de cada corte, peça os ajustes que quiser e exporte os vídeos finais na vertical.</p></div></li>
       </ol>
-      <p class="fine">A edição roda no seu computador. Quanto mais longa a gravação, mais tempo leva para processar.</p>
     </div>
   </section>
 
@@ -201,14 +257,26 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
     <div class="wrap">
       <div class="head">
         <span class="eyebrow">Personalização</span>
-        <h2>Os cortes com <span class="yellow">a sua cara.</span></h2>
-        <p>As cores desta página são da campanha. Nos seus vídeos, quem escolhe é você.</p>
+        <h2>Seu conteúdo. Seu estilo. <span class="yellow">Sua identidade.</span></h2>
+        <p>Legendas, cores e animações que combinam com você. Crie cortes com personalidade, sem deixar todos os vídeos com a mesma aparência.</p>
       </div>
-      <div class="custom">
-        <div><b>Cores e fonte</b><span>As cores e a fonte da sua marca nas legendas e nos destaques.</span></div>
-        <div><b>Estilo da legenda</b><span>Tamanho, posição e as palavras que ganham destaque.</span></div>
-        <div><b>Seu logo</b><span>A sua marca aparecendo nos vídeos.</span></div>
-        <div><b>Enquadramento</b><span>O que fica no centro do vídeo na vertical.</span></div>
+      <div class="styles">
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-mark"><span>isso</span> <span>foi</span> <span>insano</span></p></div>
+          <b>Legenda com destaque</b>
+        </div>
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-word"><span>o</span> <span>chat</span> <span>não</span> <span>acreditou</span></p></div>
+          <b>Palavra por palavra</b>
+        </div>
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-color">sua cor aqui</p><div class="sw"><i></i><i></i><i></i><i></i></div></div>
+          <b>Cores da sua marca</b>
+        </div>
+        <div class="sty">
+          <div class="scr wide-src" aria-hidden="true"><div class="frame16"><div class="win916"></div></div></div>
+          <b>Enquadramento vertical</b>
+        </div>
       </div>
     </div>
   </section>
@@ -229,9 +297,13 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Prévia de cada vídeo antes da versão final</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Serve também para editar seus outros vídeos, como os gravados falando para a câmera</span></li>
         </ul>
-        <div class="price"><strong>R$49,90</strong><span>Pagamento único</span></div>
+        <div class="price"><strong>R$ 47,90</strong></div>
         <a class="btn" data-checkout href="#">QUERO O NEON EDIT<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <p class="req">Usado com o Claude no computador. Precisa de uma assinatura paga do Claude, contratada à parte.</p>
+        <p class="req">Funciona no seu Claude · pagamento único · acesso na hora</p>
+      </div>
+      <div class="guarantee">
+        <div class="seal" aria-hidden="true"><b>7</b><span>dias</span></div>
+        <div><h3>Garantia de 7 dias</h3><p>Se não gostar, peça o reembolso em até 7 dias depois da compra e receba de volta o valor pago.</p></div>
       </div>
     </div>
   </section>
@@ -249,7 +321,8 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
         <details><summary>Posso usar minhas próprias lives e gameplays?</summary><div class="a">Sim, essa é a ideia. Use gravações suas ou de quem te autorizou. Postar cortes de lives de outros criadores sem permissão pode fazer o conteúdo ser removido.</div></details>
         <details><summary>Funciona apenas com GTA?</summary><div class="a">Não. Funciona com gravações de qualquer jogo, lives de conversa, podcasts e vídeos falando para a câmera.</div></details>
         <details><summary>Preciso enviar o arquivo ou posso colar um link?</summary><div class="a">Por enquanto, você envia o arquivo da gravação, por exemplo o .mp4 que você baixa da plataforma de live ou do seu programa de gravação. A importação direta por link ainda não está disponível.</div></details>
-        <details><summary>Preciso de assinatura do Claude ou outro serviço?</summary><div class="a">Sim. O NEON EDIT é usado dentro do Claude, no computador (Windows, macOS ou Linux), com o Claude Code. Isso exige um plano pago do Claude, contratado à parte com a Anthropic. O NEON EDIT não tem mensalidade.</div></details>
+        <details><summary>Preciso de assinatura do Claude ou outro serviço?</summary><div class="a">O NEON EDIT é pago uma vez só. Ele funciona dentro do Claude, no computador (Windows, macOS ou Linux), com o Claude Code, que exige um plano pago do Claude contratado à parte com a Anthropic. Esse plano não está incluído no valor do NEON EDIT.</div></details>
+        <details><summary>Tem garantia?</summary><div class="a">Sim, 7 dias. Se não gostar, peça o reembolso dentro desse prazo e receba de volta o valor pago.</div></details>
         <details><summary>Posso personalizar as legendas e a identidade visual?</summary><div class="a">Sim. Você define as cores, a fonte e o estilo da legenda, o seu logo e o enquadramento. Essas escolhas ficam salvas para os próximos cortes.</div></details>
       </div>
     </div>
@@ -258,8 +331,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
   <!-- 7. FECHAMENTO -->
   <section class="band">
     <div class="wrap close">
-      <h2>Grave a live. <span class="yellow">Peça os cortes.</span></h2>
-      <div class="p">R$49,90<small>Pagamento único</small></div>
+      <h2 class="final"><span>Uma live.</span> <span>Vários cortes.</span> <span class="pink">Conteúdo pra continuar postando.</span></h2>
       <a class="btn" data-checkout href="#">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </section>
