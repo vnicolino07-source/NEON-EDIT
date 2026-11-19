@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEON EDIT Cortes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Envie a live inteira e o NEON EDIT corta os melhores momentos de forma automática e do seu jeito.">
+<meta name="theme-color" content="#0A0A12">
+<link rel="icon" href="__N__">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1485164890164104');
+fbq('track', 'PageView');
+/* ViewContent: uma vez por carregamento da página. */
+if (!window.__neonViewContent) {
+  window.__neonViewContent = true;
+  fbq('track', 'ViewContent', { content_name: 'NEON EDIT', value: 19.90, currency: 'BRL' });
+}
+</script>
+<!-- End Meta Pixel Code -->
+<style>
+/* Layout: coluna central única (máx. 760px), seções em faixas alternadas, primeira tela centralizada com VSL 9:16. */
+:root{
+  --bg:#0A0A12; --band:#12121E; --card:#171726; --line:#26263A;
+  --yellow:#FFE600; --pink:#FF2E93; --purple:#7B3FE4;
+  --text:#F5F5FA; --muted:#A3A3B8; --on-yellow:#0A0A12;
+  --font:"Space Grotesk",ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;
+  --heavy:"Inter Display","Arial Black",Impact,system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  color-scheme:dark;
+}
+@font-face{font-family:"Space Grotesk";src:url("__SG__") format("woff");font-weight:300 700;font-display:swap}
+@font-face{font-family:"Inter Display";src:url("__IB__") format("woff");font-weight:900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("__JB__") format("woff");font-weight:100 800;font-display:swap}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:6px}
+
+.wrap{width:100%;max-width:760px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(72px,11vw,120px)}
+.band.alt{background:var(--band);border-block:1px solid var(--line)}
+.center{text-align:center}
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--pink)}
+.pink{color:var(--pink)}
+.yellow{color:var(--yellow)}
+.head{display:grid;gap:16px;justify-items:center;text-align:center;margin-bottom:clamp(36px,6vw,56px)}
+.head h2{font-size:clamp(32px,6vw,52px);font-weight:700}
+.head p{color:var(--muted);font-size:18px;max-width:40ch}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:60px;padding:16px 32px;border-radius:14px;background:var(--yellow);color:var(--on-yellow);font-family:var(--font);font-weight:700;font-size:16px;letter-spacing:.03em;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 12px 36px -14px rgba(255,230,0,.55)}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:14px}
+.btn svg{width:18px;height:18px}
+
+/* 1. Primeira tela */
+.hero{position:relative;padding-block:28px clamp(64px,10vw,104px);isolation:isolate;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-260px;width:min(1100px,180vw);height:620px;transform:translateX(-50%);z-index:-1;
+  background:radial-gradient(closest-side,rgba(255,46,147,.22),rgba(123,63,228,.10) 55%,transparent 75%)}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:clamp(36px,7vw,64px)}
+.brand img{width:40px;height:auto;mix-blend-mode:lighten}
+.brand span{font-weight:700;font-size:16px;letter-spacing:.08em}
+.hero-copy{display:grid;gap:20px;justify-items:center;text-align:center}
+.hero h1{display:grid;gap:14px;justify-items:center}
+.hero h1 .h1a{display:block;font-size:clamp(24px,4.6vw,36px);font-weight:700;color:#D9D9E6;letter-spacing:-.02em}
+.hero h1 .h1b{display:block;text-transform:uppercase;font-family:var(--heavy);font-weight:900;font-size:clamp(42px,9vw,78px);line-height:1;letter-spacing:-.035em;max-width:13ch}
+.hero h1 .h1b .pink{display:inline}
+.hero .sub{font-size:clamp(17px,2.4vw,19px);color:#C9C9D9;max-width:36ch}
+.vsl{position:relative;width:min(100%,340px,calc(78svh * .5625));aspect-ratio:9/16;margin:clamp(36px,6vw,48px) auto 28px;border-radius:24px;border:1px solid #3A2A55;background:#000;overflow:hidden;max-width:100%;box-shadow:0 30px 80px -30px rgba(255,46,147,.45)}
+.vsl video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vsl-tap{position:absolute;inset:0;border:0;padding:0;margin:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.vsl-tap:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px;border-radius:24px}
+.vsl-state{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,18,.6);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--text);opacity:0;transform:scale(.9);transition:opacity .2s ease,transform .2s ease;pointer-events:none}
+.vsl-state svg{width:28px;height:28px;margin-left:4px}
+.vsl.is-paused .vsl-state{opacity:1;transform:none}
+.vsl-progress{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.14);pointer-events:none}
+.vsl-progress i{display:block;height:100%;width:0;background:var(--pink);box-shadow:0 0 10px rgba(255,46,147,.6)}
+.sound-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:12px;width:min(62%,200px);padding:22px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(10,10,18,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--text);font:inherit;cursor:pointer}
+.sound-btn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:20px}
+.sound-ico{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--yellow);color:var(--on-yellow);box-shadow:0 0 0 8px rgba(255,230,0,.18),0 0 30px rgba(255,230,0,.4)}
+.sound-ico svg{width:28px;height:28px}
+.sound-txt{font-weight:700;font-size:15px}
+.vsl.has-sound .sound-btn{display:none}
+.hero .cta{display:grid;justify-items:center;gap:12px}
+
+/* 2. Exemplos */
+.flow{display:grid;gap:20px;justify-items:center}
+.src{margin:0;width:100%;max-width:640px;display:grid;gap:10px}
+.src img,.cuts img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--muted);text-align:center}
+figcaption b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:2px}
+.cuts figure{margin:0;display:grid;gap:10px;align-content:start;min-width:0}
+.slot{border-radius:16px;border:1px dashed #3A3A55;background:var(--card);display:grid;place-items:center;color:var(--muted);font-size:13px;text-align:center;padding:12px}
+.slot b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.slot.wide{width:100%;max-width:560px;aspect-ratio:16/9}
+.arrow{color:var(--pink);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px}
+.arrow svg{width:22px;height:22px}
+.cuts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:100%;max-width:640px;align-items:start}
+.slot.tall{aspect-ratio:9/16}
+.note{margin-top:6px;color:#7C7C93;font-size:12.5px;text-align:center;max-width:52ch}
+
+/* 3. Como funciona */
+.steps{list-style:none;margin:0 auto;padding:0;display:grid;gap:14px;max-width:620px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;align-items:start;padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--line);counter-increment:s}
+.steps li::before{content:counter(s);width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--pink);color:#fff;font-weight:700;font-size:20px}
+.steps h3{font-size:20px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.steps p{color:var(--muted);font-size:16px}
+.fine{margin:22px auto 0;max-width:52ch;text-align:center;color:var(--muted);font-size:14px}
+
+/* 4. Personalização */
+.custom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:620px;margin-inline:auto}
+.custom div{padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--card)}
+.custom b{display:block;font-size:17px;margin-bottom:4px}
+.custom span{color:var(--muted);font-size:15px}
+
+.styles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sty{display:grid;gap:12px;justify-items:center;text-align:center;min-width:0}
+.sty b{font-size:15px;font-weight:700}
+.scr{position:relative;width:100%;aspect-ratio:9/16;border-radius:16px;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:0 10px 22%;
+  background:linear-gradient(180deg,rgba(10,10,18,.0) 40%,rgba(10,10,18,.85)),linear-gradient(160deg,#2A1638 0%,#3A1F4F 35%,#1B2A44 70%,#0F1B2A 100%)}
+.scr::before{content:"";position:absolute;inset:auto 0 46% 0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,46,147,.35),transparent)}
+.scr p{position:relative;margin:0;font-family:var(--heavy);font-weight:900;font-size:clamp(14px,2.2vw,19px);line-height:1.15;text-transform:uppercase;color:#fff;text-align:center}
+.cap-mark span{padding:0 .18em;border-radius:4px}
+.cap-word span{display:inline-block}
+.cap-color{padding:.3em .55em;border-radius:6px;background:var(--pink)}
+.sw{position:relative;display:flex;gap:6px;margin-top:10px}
+.sw i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+.sw i:nth-child(1){background:#FF2E93}.sw i:nth-child(2){background:#FFE600}.sw i:nth-child(3){background:#2EE6FF}.sw i:nth-child(4){background:#9B5CFF}
+.scr .sw{position:relative;margin-top:12px}
+.wide-src{justify-content:center;padding:0}
+.frame16{position:relative;width:88%;aspect-ratio:16/9;border-radius:6px;background:linear-gradient(120deg,#3A2A5A,#1F3B5A 60%,#2A5A6A);border:1px solid rgba(255,255,255,.12)}
+.frame16::after{content:"";position:absolute;right:6%;top:10%;width:22%;aspect-ratio:4/3;border-radius:3px;background:rgba(255,255,255,.18)}
+.win916{position:absolute;top:-1px;bottom:-1px;left:8%;aspect-ratio:9/16;border:2px solid var(--yellow);border-radius:4px;box-shadow:0 0 0 999px rgba(10,10,18,.55)}
+.cap-mark span:nth-child(3){background:var(--yellow);color:#0A0A12}
+.cap-color{background:var(--pink)}
+@media (prefers-reduced-motion:no-preference){
+  .cap-mark span{animation:mark 3.6s infinite steps(1)}
+  .cap-mark span:nth-child(1){animation-delay:0s}.cap-mark span:nth-child(2){animation-delay:1.2s}.cap-mark span:nth-child(3){animation-delay:2.4s;background:none;color:#fff}
+  @keyframes mark{0%{background:var(--yellow);color:#0A0A12}33.3%{background:none;color:#fff}}
+  .cap-word span{opacity:0;animation:word 3.2s infinite}
+  .cap-word span:nth-child(2){animation-delay:.35s}.cap-word span:nth-child(3){animation-delay:.7s}.cap-word span:nth-child(4){animation-delay:1.05s;color:var(--pink)}
+  @keyframes word{0%{opacity:0;transform:translateY(6px) scale(.9)}8%{opacity:1;transform:none}80%{opacity:1}92%,100%{opacity:0}}
+  .cap-color{animation:hue 6s infinite}
+  @keyframes hue{0%,22%{background:#FF2E93;color:#fff}25%,47%{background:#FFE600;color:#0A0A12}50%,72%{background:#2EE6FF;color:#0A0A12}75%,97%{background:#9B5CFF;color:#fff}}
+  .win916{animation:pan 5s ease-in-out infinite alternate}
+  @keyframes pan{from{left:8%}to{left:calc(92% - 38%)}}
+}
+.cap-word span:nth-child(4){color:var(--pink)}
+
+/* 5. Oferta */
+.offer{max-width:520px;margin-inline:auto;border-radius:24px;border:1px solid #3A2A55;background:linear-gradient(180deg,#1B1730,#141424);padding:clamp(26px,6vw,40px);display:grid;gap:22px;box-shadow:0 0 0 1px rgba(255,46,147,.12),0 30px 80px -40px rgba(255,46,147,.5)}
+.offer-top{display:flex;align-items:center;gap:12px}
+.offer-top img{width:44px;height:auto;mix-blend-mode:lighten}
+.offer-top b{font-size:20px;letter-spacing:.06em}
+.offer ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.offer li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:16px}
+.offer li svg{width:20px;height:20px;color:var(--yellow);margin-top:3px}
+.price{display:grid;gap:4px;justify-items:center;text-align:center;padding-top:6px;border-top:1px solid var(--line)}
+.price strong{font-size:clamp(48px,10vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums}
+.price span{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.offer .btn{width:100%}
+.req{font-size:14px;color:var(--muted);text-align:center}
+
+.guarantee{max-width:520px;margin:18px auto 0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;padding:18px 20px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.seal{width:64px;height:64px;border-radius:50%;border:2px solid var(--yellow);display:grid;place-items:center;align-content:center;color:var(--yellow);line-height:1}
+.seal b{font-family:var(--heavy);font-weight:900;font-size:24px}
+.seal span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.guarantee h3{font-size:18px;margin-bottom:4px}
+.guarantee p{color:var(--muted);font-size:15px}
+
+/* 6. FAQ */
+.faq{display:grid;gap:10px;max-width:660px;margin-inline:auto}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-weight:500;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font-family:var(--mono);font-size:20px;color:var(--pink);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 20px 20px;color:var(--muted);font-size:16px;max-width:64ch}
+
+/* 7. Fechamento */
+.close{display:grid;gap:22px;justify-items:center;text-align:center}
+.close h2.final{display:grid;gap:4px;font-family:var(--heavy);font-weight:900;text-transform:uppercase;font-size:clamp(34px,7.4vw,64px);line-height:1;letter-spacing:-.03em}
+.close .p{font-size:30px;font-weight:700;letter-spacing:-.03em}
+.close .p small{display:block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--muted);font-size:13px}
+.foot{display:grid;gap:14px;justify-items:center;text-align:center}
+.foot img{width:30px;height:auto;mix-blend-mode:lighten;opacity:.9}
+.foot p{max-width:62ch}
+.foot a{color:var(--text)}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .cuts{gap:10px}
+  .styles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .cuts{justify-self:stretch;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 20px 6px;margin-inline:-20px;width:auto;max-width:none;-webkit-overflow-scrolling:touch}
+  .cuts figure{flex:0 0 68%;scroll-snap-align:center}
+  .steps li{grid-template-columns:40px minmax(0,1fr);gap:14px;padding:18px}
+  .steps li::before{width:40px;height:40px;font-size:18px}
+  .hero .btn,.close .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1485164890164104&ev=PageView&noscript=1"></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.52.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5Z"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v16M6 14l6 6 6-6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor"/><path d="m16 9 5 6M21 9l-5 6"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<main>
+  <!-- 1. PRIMEIRA TELA -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="brand"><img src="__N__" alt="" width="360" height="285"><span>NEON EDIT</span></div>
+      <div class="hero-copy">
+        <span class="eyebrow">Cortes automáticos</span>
+        <h1><span class="h1b"><span class="pink">Cortes prontos pra postar</span> em minutos.</span></h1>
+        <p class="sub">Envie a live inteira e o NEON EDIT corta os melhores momentos de forma automática e do seu jeito!</p>
+      </div>
+      <div class="vsl" id="vsl-box">
+        <video id="vsl" src="media/vsl-cortes.mp4" poster="media/capa-vsl-cortes.jpg" muted autoplay loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Vídeo de apresentação do NEON EDIT, 1 minuto e 39 segundos"></video>
+        <button class="vsl-tap" id="vsl-tap" type="button" aria-label="Pausar o vídeo"><span class="vsl-state" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
+        <div class="vsl-progress" aria-hidden="true"><i id="vsl-bar"></i></div>
+        <button class="sound-btn" id="vsl-sound" type="button" aria-label="Ativar o som e assistir do início">
+          <span class="sound-ico"><svg aria-hidden="true"><use href="#i-mute"/></svg></span>
+          <span class="sound-txt">Toque para ouvir</span>
+        </button>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#oferta">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. EXEMPLOS -->
+  <section class="band alt" id="exemplos">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Exemplos de formato</span>
+        <h2>Uma gravação. <span class="yellow">Vários conteúdos.</span></h2>
+        <p>A gravação longa entra de um lado. Do outro, saem cortes verticais com legenda, prontos para você revisar e postar.</p>
+      </div>
+      <div class="flow">
+        <figure class="src">
+          <img src="img/gravacao.webp" alt="Gravação horizontal de uma live de gameplay, com a câmera do streamer no canto" width="1200" height="667" loading="lazy">
+          <figcaption>Gravação de origem</figcaption>
+        </figure>
+        <div class="arrow" aria-hidden="true"><svg><use href="#i-down"/></svg>Formatos de corte vertical</div>
+        <div class="cuts" aria-label="Exemplos de formato de corte">
+          <figure><img src="img/corte-1.webp" alt="Corte vertical com a câmera em cima, título no meio e o jogo embaixo" width="540" height="970" loading="lazy"><figcaption><b>Formato 1</b>Câmera em cima e título no meio</figcaption></figure>
+          <figure><img src="img/corte-2.webp" alt="Corte vertical com etiqueta do nome e legenda com palavra destacada" width="540" height="957" loading="lazy"><figcaption><b>Formato 2</b>Legenda com palavra em destaque</figcaption></figure>
+          <figure><img src="img/corte-3.webp" alt="Corte vertical com título em faixa clara entre a câmera e o jogo" width="540" height="1001" loading="lazy"><figcaption><b>Formato 3</b>Título em faixa clara</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMO FUNCIONA -->
+  <section class="band" id="como-funciona">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Três passos. <span class="pink">Sem programar.</span></h2>
+      </div>
+      <ol class="steps">
+        <li><div><h3>Prepare o NEON EDIT no Claude</h3><p>Siga o guia para instalar. Na primeira vez, o Claude confere o que falta no seu computador e pede sua autorização antes de instalar qualquer coisa.</p></div></li>
+        <li><div><h3>Envie a gravação e peça os cortes</h3><p>Coloque o arquivo da live ou da gameplay na pasta e diga o que quer, com as suas palavras: quantos cortes, sobre quais momentos e o estilo da legenda.</p></div></li>
+        <li><div><h3>Revise, ajuste e exporte</h3><p>Assista à prévia de cada corte, peça os ajustes que quiser e exporte os vídeos finais na vertical.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. PERSONALIZAÇÃO -->
+  <section class="band alt">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Personalização</span>
+        <h2>Seu conteúdo. Seu estilo. <span class="yellow">Sua identidade.</span></h2>
+        <p>Legendas, cores e animações que combinam com você. Crie cortes com personalidade, sem deixar todos os vídeos com a mesma aparência.</p>
+      </div>
+      <div class="styles">
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-mark"><span>isso</span> <span>foi</span> <span>insano</span></p></div>
+          <b>Legenda com destaque</b>
+        </div>
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-word"><span>o</span> <span>chat</span> <span>não</span> <span>acreditou</span></p></div>
+          <b>Palavra por palavra</b>
+        </div>
+        <div class="sty">
+          <div class="scr" aria-hidden="true"><p class="cap-color">sua cor aqui</p><div class="sw"><i></i><i></i><i></i><i></i></div></div>
+          <b>Cores da sua marca</b>
+        </div>
+        <div class="sty">
+          <div class="scr wide-src" aria-hidden="true"><div class="frame16"><div class="win916"></div></div></div>
+          <b>Enquadramento vertical</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. OFERTA -->
+  <section class="band" id="oferta">
+    <div class="wrap">
+      <div class="head">
+        <h2>Comece a criar <span class="pink">seus cortes.</span></h2>
+      </div>
+      <div class="offer">
+        <div class="offer-top"><img src="__N__" alt="" width="360" height="285"><b>NEON EDIT</b></div>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>O arquivo do NEON EDIT para instalar no Claude</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Guia de instalação e uso, passo a passo</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Cortes, legendas e animações pedidos com as suas palavras</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Suas cores, fonte e logo salvos para os próximos vídeos</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Prévia de cada vídeo antes da versão final</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Serve também para editar seus outros vídeos, como os gravados falando para a câmera</span></li>
+        </ul>
+        <div class="price"><strong>R$ 19,90</strong></div>
+        <a class="btn" data-checkout data-loc="oferta" href="#">QUERO O NEON EDIT<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="req">Funciona no seu Claude · pagamento único · acesso na hora</p>
+      </div>
+      <div class="guarantee">
+        <div class="seal" aria-hidden="true"><b>7</b><span>dias</span></div>
+        <div><h3>Garantia de 7 dias</h3><p>Se não gostar, peça o reembolso em até 7 dias depois da compra e receba de volta o valor pago.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FAQ -->
+  <section class="band alt" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Dúvidas</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Preciso saber editar ou programar?</summary><div class="a">Não. Você pede os cortes com as suas palavras, como pediria a um editor. Só precisa seguir o guia de instalação uma vez.</div></details>
+        <details><summary>Como recebo e começo a usar?</summary><div class="a">Depois da compra, você recebe o arquivo do NEON EDIT e o guia. Instala no Claude, faz a configuração inicial e já pode enviar a primeira gravação.</div></details>
+        <details><summary>Posso usar minhas próprias lives e gameplays?</summary><div class="a">Sim, essa é a ideia. Use gravações suas ou de quem te autorizou. Postar cortes de lives de outros criadores sem permissão pode fazer o conteúdo ser removido.</div></details>
+        <details><summary>Funciona apenas com GTA?</summary><div class="a">Não. Funciona com gravações de qualquer jogo, lives de conversa, podcasts e vídeos falando para a câmera.</div></details>
+        <details><summary>Preciso enviar o arquivo ou posso colar um link?</summary><div class="a">Por enquanto, você envia o arquivo da gravação, por exemplo o .mp4 que você baixa da plataforma de live ou do seu programa de gravação. A importação direta por link ainda não está disponível.</div></details>
+        <details><summary>Preciso de assinatura do Claude ou outro serviço?</summary><div class="a">O NEON EDIT é pago uma vez só. Ele funciona dentro do Claude, no computador (Windows, macOS ou Linux), com o Claude Code, que exige um plano pago do Claude contratado à parte com a Anthropic. Esse plano não está incluído no valor do NEON EDIT.</div></details>
+        <details><summary>Tem garantia?</summary><div class="a">Sim, 7 dias. Se não gostar, peça o reembolso dentro desse prazo e receba de volta o valor pago.</div></details>
+        <details><summary>Posso personalizar as legendas e a identidade visual?</summary><div class="a">Sim. Você define as cores, a fonte e o estilo da legenda, o seu logo e o enquadramento. Essas escolhas ficam salvas para os próximos cortes.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FECHAMENTO -->
+  <section class="band">
+    <div class="wrap close">
+      <h2 class="final"><span>Uma live.</span> <span class="pink">Vários cortes.</span></h2>
+      <a class="btn" data-checkout data-loc="final" href="#">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="__N__" alt="" width="360" height="285">
+    <p>NEON EDIT é um produto independente. Não é o Claude e não é afiliado à Anthropic. GTA e Grand Theft Auto são marcas da Rockstar Games, sem relação com o NEON EDIT.</p>
+    <p><a href="https://hubneonedit.netlify.app/" target="_blank" rel="noopener">Hub de conteúdos NEON</a></p>
+  </div>
+</footer>
+
+<script>
+/* Endereço único de checkout: altere apenas aqui. */
+const CHECKOUT_URL = "https://pay.cakto.com.br/3267icn_1262242";
+/* Valor da oferta enviado ao Meta Pixel (deve bater com o preço da página e da Cakto). */
+const OFERTA = { content_name: "NEON EDIT", value: 19.90, currency: "BRL" };
+
+/* Repassa ao checkout os parâmetros de atribuição da visita (utm_*, src, sck). */
+function checkoutHref() {
+  try {
+    const url = new URL(CHECKOUT_URL);
+    new URLSearchParams(location.search).forEach((v, k) => {
+      if ((/^utm_/i.test(k) || k === "src" || k === "sck") && !url.searchParams.has(k)) url.searchParams.set(k, v);
+    });
+    return url.toString();
+  } catch (e) { return CHECKOUT_URL; }
+}
+
+/* Botões de checkout: o link abre normalmente; o InitiateCheckout é só um extra e nunca bloqueia o clique. */
+document.querySelectorAll("[data-checkout]").forEach(a => {
+  a.href = checkoutHref(); a.target = "_blank"; a.rel = "noopener";
+  a.addEventListener("click", () => {
+    try {
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "InitiateCheckout", Object.assign({}, OFERTA, { num_items: 1, button_location: a.dataset.loc || "oferta" }));
+      }
+    } catch (e) {}
+  });
+});
+
+/* VSL: começa sozinha e sem som (regra dos navegadores). "Toque para ouvir" liga o som e volta ao início.
+   Depois disso, tocar no vídeo só pausa e continua. Não há barra para adiantar. */
+(function(){
+  const v = document.getElementById("vsl"), box = document.getElementById("vsl-box");
+  const snd = document.getElementById("vsl-sound"), tap = document.getElementById("vsl-tap"), bar = document.getElementById("vsl-bar");
+  if (!v) return;
+  const play = () => { try { const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} };
+  v.muted = true; v.defaultMuted = true; play();
+  v.addEventListener("loadeddata", () => { if (v.paused && !box.classList.contains("has-sound")) play(); }, {once:true});
+  snd.addEventListener("click", () => { v.loop = false; v.muted = false; v.volume = 1; v.currentTime = 0; box.classList.add("has-sound"); box.classList.remove("is-paused"); play(); });
+  tap.addEventListener("click", () => { if (!box.classList.contains("has-sound")) { snd.click(); return; } v.paused ? play() : v.pause(); });
+  v.addEventListener("pause", () => { box.classList.add("is-paused"); tap.setAttribute("aria-label", "Continuar o vídeo"); });
+  v.addEventListener("play", () => { box.classList.remove("is-paused"); tap.setAttribute("aria-label", "Pausar o vídeo"); });
+  v.addEventListener("contextmenu", e => e.preventDefault());
+  const tick = () => { if (v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + "%"; requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
