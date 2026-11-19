@@ -8,6 +8,25 @@
 <meta name="description" content="Envie a live inteira e o NEON EDIT corta os melhores momentos de forma automática e do seu jeito.">
 <meta name="theme-color" content="#0A0A12">
 <link rel="icon" href="__N__">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1485164890164104');
+fbq('track', 'PageView');
+/* ViewContent: uma vez por carregamento da página. */
+if (!window.__neonViewContent) {
+  window.__neonViewContent = true;
+  fbq('track', 'ViewContent', { content_name: 'NEON EDIT', value: 19.90, currency: 'BRL' });
+}
+</script>
+<!-- End Meta Pixel Code -->
 <style>
 /* Layout: coluna central única (máx. 760px), seções em faixas alternadas, primeira tela centralizada com VSL 9:16. */
 :root{
@@ -196,6 +215,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
 </style>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1485164890164104&ev=PageView&noscript=1"></noscript>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.52.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5Z"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v16M6 14l6 6 6-6"/></symbol>
@@ -313,7 +333,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Serve também para editar seus outros vídeos, como os gravados falando para a câmera</span></li>
         </ul>
         <div class="price"><strong>R$ 19,90</strong></div>
-        <a class="btn" data-checkout href="#">QUERO O NEON EDIT<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn" data-checkout data-loc="oferta" href="#">QUERO O NEON EDIT<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="req">Funciona no seu Claude · pagamento único · acesso na hora</p>
       </div>
       <div class="guarantee">
@@ -347,7 +367,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
   <section class="band">
     <div class="wrap close">
       <h2 class="final"><span>Uma live.</span> <span class="pink">Vários cortes.</span></h2>
-      <a class="btn" data-checkout href="#">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn" data-checkout data-loc="final" href="#">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </section>
 </main>
@@ -363,7 +383,31 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
 <script>
 /* Endereço único de checkout: altere apenas aqui. */
 const CHECKOUT_URL = "https://pay.cakto.com.br/3267icn_1262242";
-document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+/* Valor da oferta enviado ao Meta Pixel (deve bater com o preço da página e da Cakto). */
+const OFERTA = { content_name: "NEON EDIT", value: 19.90, currency: "BRL" };
+
+/* Repassa ao checkout os parâmetros de atribuição da visita (utm_*, src, sck). */
+function checkoutHref() {
+  try {
+    const url = new URL(CHECKOUT_URL);
+    new URLSearchParams(location.search).forEach((v, k) => {
+      if ((/^utm_/i.test(k) || k === "src" || k === "sck") && !url.searchParams.has(k)) url.searchParams.set(k, v);
+    });
+    return url.toString();
+  } catch (e) { return CHECKOUT_URL; }
+}
+
+/* Botões de checkout: o link abre normalmente; o InitiateCheckout é só um extra e nunca bloqueia o clique. */
+document.querySelectorAll("[data-checkout]").forEach(a => {
+  a.href = checkoutHref(); a.target = "_blank"; a.rel = "noopener";
+  a.addEventListener("click", () => {
+    try {
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "InitiateCheckout", Object.assign({}, OFERTA, { num_items: 1, button_location: a.dataset.loc || "oferta" }));
+      }
+    } catch (e) {}
+  });
+});
 
 /* VSL: começa sozinha e sem som (regra dos navegadores). "Toque para ouvir" liga o som e volta ao início.
    Depois disso, tocar no vídeo só pausa e continua. Não há barra para adiantar. */
