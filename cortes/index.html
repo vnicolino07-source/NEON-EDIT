@@ -60,11 +60,21 @@ p{margin:0}
 .hero h1 .h1b{display:block;text-transform:uppercase;font-family:var(--heavy);font-weight:900;font-size:clamp(42px,9vw,78px);line-height:1;letter-spacing:-.035em;max-width:13ch}
 .hero h1 .h1b .pink{display:inline}
 .hero .sub{font-size:clamp(17px,2.4vw,19px);color:#C9C9D9;max-width:36ch}
-.vsl{position:relative;width:min(100%,340px);aspect-ratio:9/16;margin:clamp(36px,6vw,48px) auto 28px;border-radius:24px;border:1px dashed #3A3A55;background:linear-gradient(180deg,#14142A,#0F0F1C);display:grid;place-items:center;max-width:100%}
-.vsl .ph{display:grid;justify-items:center;gap:14px;color:var(--muted);font-size:14px}
-.vsl .ph i{width:64px;height:64px;border-radius:50%;border:1.5px solid #3A3A55;display:grid;place-items:center;color:var(--text)}
-.vsl .ph i svg{width:22px;height:22px;margin-left:3px}
-.vsl .ph b{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.vsl{position:relative;width:min(100%,340px,calc(78svh * .5625));aspect-ratio:9/16;margin:clamp(36px,6vw,48px) auto 28px;border-radius:24px;border:1px solid #3A2A55;background:#000;overflow:hidden;max-width:100%;box-shadow:0 30px 80px -30px rgba(255,46,147,.45)}
+.vsl video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vsl-tap{position:absolute;inset:0;border:0;padding:0;margin:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.vsl-tap:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px;border-radius:24px}
+.vsl-state{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:rgba(10,10,18,.6);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--text);opacity:0;transform:scale(.9);transition:opacity .2s ease,transform .2s ease;pointer-events:none}
+.vsl-state svg{width:28px;height:28px;margin-left:4px}
+.vsl.is-paused .vsl-state{opacity:1;transform:none}
+.vsl-progress{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.14);pointer-events:none}
+.vsl-progress i{display:block;height:100%;width:0;background:var(--pink);box-shadow:0 0 10px rgba(255,46,147,.6)}
+.sound-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:12px;width:min(62%,200px);padding:22px 16px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(10,10,18,.62);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--text);font:inherit;cursor:pointer}
+.sound-btn:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:20px}
+.sound-ico{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--yellow);color:var(--on-yellow);box-shadow:0 0 0 8px rgba(255,230,0,.18),0 0 30px rgba(255,230,0,.4)}
+.sound-ico svg{width:28px;height:28px}
+.sound-txt{font-weight:700;font-size:15px}
+.vsl.has-sound .sound-btn{display:none}
 .hero .cta{display:grid;justify-items:center;gap:12px}
 
 /* 2. Exemplos */
@@ -190,6 +200,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
   <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15a1 1 0 0 0 1.52.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 7 4.5Z"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v16M6 14l6 6 6-6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5 10-11"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor"/><path d="m16 9 5 6M21 9l-5 6"/></g></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
 </svg>
 
@@ -203,8 +214,14 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
         <h1><span class="h1b"><span class="pink">Cortes prontos pra postar</span> em minutos.</span></h1>
         <p class="sub">Envie a live inteira e o NEON EDIT corta os melhores momentos de forma automática e do seu jeito!</p>
       </div>
-      <div class="vsl" id="vsl" data-src="" aria-label="Vídeo de apresentação">
-        <div class="ph"><i><svg aria-hidden="true"><use href="#i-play"/></svg></i><b>Vídeo de apresentação</b></div>
+      <div class="vsl" id="vsl-box">
+        <video id="vsl" src="media/vsl-cortes.mp4" poster="media/capa-vsl-cortes.jpg" muted autoplay loop playsinline webkit-playsinline preload="auto" disablepictureinpicture aria-label="Vídeo de apresentação do NEON EDIT, 1 minuto e 39 segundos"></video>
+        <button class="vsl-tap" id="vsl-tap" type="button" aria-label="Pausar o vídeo"><span class="vsl-state" aria-hidden="true"><svg><use href="#i-play"/></svg></span></button>
+        <div class="vsl-progress" aria-hidden="true"><i id="vsl-bar"></i></div>
+        <button class="sound-btn" id="vsl-sound" type="button" aria-label="Ativar o som e assistir do início">
+          <span class="sound-ico"><svg aria-hidden="true"><use href="#i-mute"/></svg></span>
+          <span class="sound-txt">Toque para ouvir</span>
+        </button>
       </div>
       <div class="cta">
         <a class="btn" href="#oferta">QUERO CRIAR MEUS CORTES<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -295,7 +312,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Prévia de cada vídeo antes da versão final</span></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Serve também para editar seus outros vídeos, como os gravados falando para a câmera</span></li>
         </ul>
-        <div class="price"><strong>R$ 47,90</strong></div>
+        <div class="price"><strong>R$ 19,90</strong></div>
         <a class="btn" data-checkout href="#">QUERO O NEON EDIT<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <p class="req">Funciona no seu Claude · pagamento único · acesso na hora</p>
       </div>
@@ -347,6 +364,24 @@ footer{border-top:1px solid var(--line);padding-block:32px 40px;color:var(--mute
 /* Endereço único de checkout: altere apenas aqui. */
 const CHECKOUT_URL = "https://pay.cakto.com.br/3267icn_1262242";
 document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+
+/* VSL: começa sozinha e sem som (regra dos navegadores). "Toque para ouvir" liga o som e volta ao início.
+   Depois disso, tocar no vídeo só pausa e continua. Não há barra para adiantar. */
+(function(){
+  const v = document.getElementById("vsl"), box = document.getElementById("vsl-box");
+  const snd = document.getElementById("vsl-sound"), tap = document.getElementById("vsl-tap"), bar = document.getElementById("vsl-bar");
+  if (!v) return;
+  const play = () => { try { const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {} };
+  v.muted = true; v.defaultMuted = true; play();
+  v.addEventListener("loadeddata", () => { if (v.paused && !box.classList.contains("has-sound")) play(); }, {once:true});
+  snd.addEventListener("click", () => { v.loop = false; v.muted = false; v.volume = 1; v.currentTime = 0; box.classList.add("has-sound"); box.classList.remove("is-paused"); play(); });
+  tap.addEventListener("click", () => { if (!box.classList.contains("has-sound")) { snd.click(); return; } v.paused ? play() : v.pause(); });
+  v.addEventListener("pause", () => { box.classList.add("is-paused"); tap.setAttribute("aria-label", "Continuar o vídeo"); });
+  v.addEventListener("play", () => { box.classList.remove("is-paused"); tap.setAttribute("aria-label", "Pausar o vídeo"); });
+  v.addEventListener("contextmenu", e => e.preventDefault());
+  const tick = () => { if (v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + "%"; requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+})();
 </script>
 </body>
 </html>
